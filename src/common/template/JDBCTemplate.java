@@ -17,8 +17,9 @@ public class JDBCTemplate {
 	public static Connection getConnection() {
 		Connection conn = null;
 		try {
-			String path = JDBCTemplate.class.getResource("./driver.properties").getPath();
-			prop.load(new FileReader(path + "../resource/properties/driver.properties"));
+			String path = JDBCTemplate.class.getClass().getResource("/").getPath() + "common/template/driver.properties";
+//			System.out.println(JDBCTemplate.class.getClass().getResource("/").getPath() + "common/template/driver.properties");
+			prop.load(new FileReader(path));
 			Class.forName(prop.getProperty("driver"));
 			conn = DriverManager.getConnection(prop.getProperty("url"), prop.getProperty("user"),
 					prop.getProperty("pw"));

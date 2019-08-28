@@ -8,7 +8,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Properties;
 
-
 import common.template.JDBCTemplate;
 import test.client.model.vo.Client;
 
@@ -16,9 +15,10 @@ public class ClientDao {
 	Properties prop = new Properties();
 
 	public ClientDao() {
+//		String path = this.getClass().getClassLoader().getResource("/sql/client/client-query.properties").getPath();
+		String path = getClass().getResource("/").getPath()+"sql.client/client-query.properties";
 		try {
-			String path=ClientDao.class.getResource("/sql/client/client-query.properties").getPath();
-			prop.load(new FileReader(path + "../resource/properties/ClientQuery.properties"));
+			prop.load(new FileReader(path));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
