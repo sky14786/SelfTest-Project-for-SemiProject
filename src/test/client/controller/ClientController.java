@@ -20,6 +20,7 @@ public class ClientController {
 					+ String.valueOf((int) (Math.random() * 9)) + String.valueOf((int) (Math.random() * 9)));
 			temp.setPw("1ARVn2Auq2/WAqx2gNrL+q3RNjAzXpUfCXrzkA6d4Xa22yhRLy4AC50E+6UTPoscbo31nbOoq51gvkuXzJ6B2w==");
 			temp.setName(randomHangulName());
+			temp.setUserType(1);
 			cs.JoinClient(temp);
 
 			System.out.println("| LOG | " + i + " | " + temp.toString());
