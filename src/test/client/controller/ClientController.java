@@ -23,7 +23,7 @@ public class ClientController {
 			temp.setUserType(1);
 			cs.JoinClient(temp);
 
-			System.out.println("| LOG | " + i + " | " + temp.toString());
+			System.out.println("| LOG | CreateClient | " + i + " | " + temp.toString());
 		}
 
 	}

@@ -1,6 +1,7 @@
 package test.client.model.service;
 
 import java.sql.Connection;
+import java.util.ArrayList;
 
 import common.template.JDBCTemplate;
 import test.client.model.dao.ClientDao;
@@ -47,5 +48,12 @@ public class ClientService {
 		}
 		JDBCTemplate.close(conn);
 		return result;
+	}
+	
+	public ArrayList<String> allSelect(){
+		Connection conn = JDBCTemplate.getConnection();
+		ArrayList<String> temp = dao.allSelect(conn);
+		JDBCTemplate.close(conn);
+		return temp;
 	}
 }

@@ -6,6 +6,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Properties;
 
 import common.template.JDBCTemplate;
@@ -16,7 +17,7 @@ public class ClientDao {
 
 	public ClientDao() {
 //		String path = this.getClass().getClassLoader().getResource("/sql/client/client-query.properties").getPath();
-		String path = getClass().getResource("/").getPath()+"sql.client/client-query.properties";
+		String path = getClass().getResource("/").getPath() + "sql.client/client-query.properties";
 		try {
 			prop.load(new FileReader(path));
 		} catch (IOException e) {
@@ -108,5 +109,26 @@ public class ClientDao {
 			JDBCTemplate.close(pstmt);
 		}
 		return result;
+	}
+
+	public ArrayList<String> allSelect(Connection conn) {
+		PreparedStatement pstmt = null;
+		String sql = prop.getProperty("allSelect");
+		ResultSet rs = null;
+		ArrayList<String> temp = new ArrayList<String>();
+		try {
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				String phoneNum = rs.getString("id");
+				temp.add(phoneNum);
+			}
+		} catch (SQLException sqle) {
+			sqle.printStackTrace();
+		} finally {
+			JDBCTemplate.close(rs);
+			JDBCTemplate.close(pstmt);
+		}
+		return temp;
 	}
 }
