@@ -7,6 +7,7 @@ import java.util.List;
 
 import test.boardmatching.model.service.BoardMatchingService;
 import test.boardmatching.model.vo.BoardMatching;
+import test.cartype.model.service.CarTypeService;
 import test.client.model.service.ClientService;
 
 public class BoardMatchingController {
@@ -18,8 +19,9 @@ public class BoardMatchingController {
 			String startAddr = randomHangulAddr();
 			String endAddr = randomHangulAddr();
 			String etc = title + "<br>" + startAddr + "에서 " + endAddr + "로 배송을 희망합니다.";
-			BoardMatching bTemp = new BoardMatching(writer, etc, startAddr, endAddr, etc);
-			if(new BoardMatchingService().writeBoardMatching(bTemp)==1) {
+			int carTypeNo = ((int) (Math.random() * new CarTypeService().selectCountCarType()) + 1);
+			BoardMatching bTemp = new BoardMatching(writer, etc, startAddr, endAddr, etc, carTypeNo);
+			if (new BoardMatchingService().writeBoardMatching(bTemp) == 1) {
 				System.out.println("| LOG | CreateBoardMatching | " + i + " | " + bTemp.toString());
 			}
 

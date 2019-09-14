@@ -34,9 +34,7 @@ public class ClientDao {
 			pstmt.setString(1, temp.getId());
 			pstmt.setString(2, temp.getPw());
 			pstmt.setString(3, temp.getName());
-			pstmt.setString(4, temp.getProfile());
-			pstmt.setInt(5, temp.getUserType());
-
+			pstmt.setString(4, temp.getEmail());
 			result = pstmt.executeUpdate();
 		} catch (SQLException sqle) {
 			sqle.printStackTrace();

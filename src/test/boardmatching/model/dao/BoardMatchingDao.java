@@ -14,9 +14,7 @@ public class BoardMatchingDao {
 	Properties prop = new Properties();
 
 	public BoardMatchingDao() {
-		System.out.println( getClass().getResource("/").getPath());
 		String path = getClass().getResource("/").getPath() + "sql.boardMatching/boardMatching-query.properties";
-		System.out.println(path);
 		try {
 			prop.load(new FileReader(path));
 		} catch (IOException e) {
@@ -35,6 +33,7 @@ public class BoardMatchingDao {
 			pstmt.setString(3, bTemp.getStartAddr());
 			pstmt.setString(4, bTemp.getEndAddr());
 			pstmt.setString(5, bTemp.getEtc());
+			pstmt.setInt(6, bTemp.getCarTypeNo());
 
 			result = pstmt.executeUpdate();
 

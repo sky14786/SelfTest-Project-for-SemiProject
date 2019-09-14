@@ -9,7 +9,7 @@ public class BoardMatching {
 	private String startAddr;
 	private String endAddr;
 	private String etc;
-	private String stuffSize;
+	private int carTypeNo;
 	private String memo;
 	private Date hireDate;
 	private int boardState;
@@ -17,11 +17,28 @@ public class BoardMatching {
 	private int count;
 
 	public BoardMatching() {
-		// TODO Auto-generated constructor stub
+	}
+
+	public BoardMatching(String wrtier, String title, String startAddr, String endAddr, String etc, int carTypeNo) {
+		super();
+		this.wrtier = wrtier;
+		this.title = title;
+		this.startAddr = startAddr;
+		this.endAddr = endAddr;
+		this.etc = etc;
+		this.carTypeNo = carTypeNo;
+	}
+
+	public int getCarTypeNo() {
+		return carTypeNo;
+	}
+
+	public void setCarTypeNo(int carTypeNo) {
+		this.carTypeNo = carTypeNo;
 	}
 
 	public BoardMatching(int boardNo, String wrtier, String title, String startAddr, String endAddr, String etc,
-			String stuffSize, String memo, Date hireDate, int boardState, String pic1, String pic2, String pic3,
+			int carTypeNo, String memo, Date hireDate, int boardState, String pic1, String pic2, String pic3,
 			String pic4, String pic5, int count) {
 		super();
 		this.boardNo = boardNo;
@@ -30,7 +47,7 @@ public class BoardMatching {
 		this.startAddr = startAddr;
 		this.endAddr = endAddr;
 		this.etc = etc;
-		this.stuffSize = stuffSize;
+		this.carTypeNo = carTypeNo;
 		this.memo = memo;
 		this.hireDate = hireDate;
 		this.boardState = boardState;
@@ -40,17 +57,6 @@ public class BoardMatching {
 		this.pic4 = pic4;
 		this.pic5 = pic5;
 		this.count = count;
-	}
-	
-	
-
-	public BoardMatching(String wrtier, String title, String startAddr, String endAddr, String etc) {
-		super();
-		this.wrtier = wrtier;
-		this.title = title;
-		this.startAddr = startAddr;
-		this.endAddr = endAddr;
-		this.etc = etc;
 	}
 
 	public int getBoardNo() {
@@ -99,14 +105,6 @@ public class BoardMatching {
 
 	public void setEtc(String etc) {
 		this.etc = etc;
-	}
-
-	public String getStuffSize() {
-		return stuffSize;
-	}
-
-	public void setStuffSize(String stuffSize) {
-		this.stuffSize = stuffSize;
 	}
 
 	public String getMemo() {
@@ -184,7 +182,7 @@ public class BoardMatching {
 	@Override
 	public String toString() {
 		return "BoardMatching [boardNo=" + boardNo + ", wrtier=" + wrtier + ", title=" + title + ", startAddr="
-				+ startAddr + ", endAddr=" + endAddr + ", etc=" + etc + ", stuffSize=" + stuffSize + ", memo=" + memo
+				+ startAddr + ", endAddr=" + endAddr + ", etc=" + etc + ", carTypeNo=" + carTypeNo + ", memo=" + memo
 				+ ", hireDate=" + hireDate + ", boardState=" + boardState + ", pic1=" + pic1 + ", pic2=" + pic2
 				+ ", pic3=" + pic3 + ", pic4=" + pic4 + ", pic5=" + pic5 + ", count=" + count + "]";
 	}
