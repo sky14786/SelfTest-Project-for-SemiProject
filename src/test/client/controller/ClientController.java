@@ -10,7 +10,7 @@ import test.client.model.vo.Client;
 public class ClientController {
 
 	public void createDummyData() {
-		for (int i = 0; i < 2; i++) {
+		for (int i = 0; i < 100; i++) {
 			ClientService cs = new ClientService();
 			Client temp = new Client();
 
@@ -20,7 +20,7 @@ public class ClientController {
 					+ String.valueOf((int) (Math.random() * 9)) + String.valueOf((int) (Math.random() * 9)));
 			temp.setPw("1ARVn2Auq2/WAqx2gNrL+q3RNjAzXpUfCXrzkA6d4Xa22yhRLy4AC50E+6UTPoscbo31nbOoq51gvkuXzJ6B2w==");
 			temp.setName(randomHangulName());
-			temp.setEmail("sky14786@gmail.com");
+			temp.setEmail("sky_14786@naver.com");
 			cs.JoinClient(temp);
 
 			System.out.println("| LOG | CreateClient | " + i + " | " + temp.toString());
